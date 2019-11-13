@@ -1,0 +1,467 @@
+{% load socialaccount %}
+{% providers_media_js %}
+{% load static %}
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" lang="en">
+
+<head>
+    <script src="https://kit.fontawesome.com/1bdabb35a5.js"></script>
+    <title>AMABA, ONLINE SHOPPING FOR LESS </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="file:///Users/howardchen/Desktop/group_project/apps/projapp/static/">
+    
+     <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="{% static 'css/style.min.css' %}" rel="stylesheet">
+
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+
+    <script>
+        function start() {
+            gapi.load('auth2', function () {
+                auth2 = gapi.auth2.init({
+                    client_id: '766665044449-rodj8pnlaa1csuhior0frjm266i9cte6.apps.googleusercontent.com',
+                    // Scopes to request in addition to 'profile' and 'email'
+                    //scope: 'additional_scope'
+                });
+            });
+        }
+    </script>
+
+    <style>
+        .body {
+            margin: auto;
+        }
+
+        .jumbotron {
+            margin-bottom: 45px;
+            height: auto;
+
+        }
+
+        .header h1 {
+            margin-top: -50px;
+            font-weight: bold;
+            margin-left: 25px;
+            font-size: 40px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .header img {
+            display: inline-block;
+            vertical-align: top;
+            width: 55px;
+            height: 55px;
+            margin-top: -50px;
+
+        }
+
+        .mx-auto a {
+            display: inline-block;
+
+        }
+        .header_right {
+            /* margin-left: 1000px; */
+            display: inline-block;
+            float: right;
+        }
+        .mx-auto h1 {
+            display: inline-block;
+        }
+
+        .social img {
+            display: inline-block;
+            vertical-align: top;
+            width: 55px;
+            height: 55px;
+            margin-left: 35px;
+        }
+
+        .social {
+            margin-left: 35px;
+            margin-top: 35px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .mx-auto p {
+            margin-left: 180px;
+        }
+
+        .form-group h5 {
+            color: red;
+        }
+        footer {
+            height: 200px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <!-- BODY-->
+    <div class="jumbotron">
+        <!--JUMBOTRON-->
+        <div class="header">
+            <a href="/success"><img src="{% static 'projapp/images/logoAma.png' %}" alt="logo"></a>
+            <h1>Amaba</h1>
+            <div class="header_right">
+                    <a href="/login"> <img src="{% static '/projapp/images/user.png' %}" alt="user"></a>
+                     <a href="/shows/checkout"><img src="{% static '/projapp/images/shopping_cart.png' %}" alt="shopping_cart"></a>
+    
+                </div>
+        </div>
+    
+  
+    
+      <!--Main layout-->
+      <main class="mt-5 pt-4">
+        <div class="container wow fadeIn">
+    
+          <!-- Heading -->
+          <h2 class="my-5 h2 text-center">Checkout form</h2>
+    
+          <!--Grid row-->
+          <div class="row">
+    
+            <!--Grid column-->
+            <div class="col-md-8 mb-4">
+    
+              <!--Card-->
+              <div class="card">
+    
+                <!--Card content-->
+                <form class="card-body">
+    
+                  <!--Grid row-->
+                  <div class="row">
+    
+                    <!--Grid column-->
+                    <div class="col-md-6 mb-2">
+    
+                      <!--firstName-->
+                      <div class="md-form ">
+                        <input type="text" id="firstName" class="form-control">
+                        <label for="firstName" class="">First name</label>
+                      </div>
+    
+                    </div>
+                    <!--Grid column-->
+    
+                    <!--Grid column-->
+                    <div class="col-md-6 mb-2">
+    
+                      <!--lastName-->
+                      <div class="md-form">
+                        <input type="text" id="lastName" class="form-control">
+                        <label for="lastName" class="">Last name</label>
+                      </div>
+    
+                    </div>
+                    <!--Grid column-->
+    
+                  </div>
+                  <!--Grid row-->
+    
+                  <!--Username-->
+                  <div class="md-form input-group pl-0 mb-5">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">@</span>
+                    </div>
+                    <input type="text" class="form-control py-0" placeholder="Username" aria-describedby="basic-addon1">
+                  </div>
+    
+                  <!--email-->
+                  <div class="md-form mb-5">
+                    <input type="text" id="email" class="form-control" placeholder="youremail@example.com">
+                    <label for="email" class="">Email (optional)</label>
+                  </div>
+    
+                  <!--address-->
+                  <div class="md-form mb-5">
+                    <input type="text" id="address" class="form-control" placeholder="1234 Main St">
+                    <label for="address" class="">Address</label>
+                  </div>
+    
+                  <!--address-2-->
+                  <div class="md-form mb-5">
+                    <input type="text" id="address-2" class="form-control" placeholder="Apartment or suite">
+                    <label for="address-2" class="">Address 2 (optional)</label>
+                  </div>
+    
+                  <!--Grid row-->
+                  <div class="row">
+    
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-12 mb-4">
+    
+                      <label for="country">Country</label>
+                      <select class="custom-select d-block w-100" id="country" required>
+                        <option value="">Choose...</option>
+                        <option>United States</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid country.
+                      </div>
+    
+                    </div>
+                    <!--Grid column-->
+    
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-6 mb-4">
+    
+                      <label for="state">State</label>
+                      <select class="custom-select d-block w-100" id="state" required>
+                        <option value="">Choose...</option>
+                        <option>California</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
+    
+                    </div>
+                    <!--Grid column-->
+    
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-6 mb-4">
+    
+                      <label for="zip">Zip</label>
+                      <input type="text" class="form-control" id="zip" placeholder="" required>
+                      <div class="invalid-feedback">
+                        Zip code required.
+                      </div>
+    
+                    </div>
+                    <!--Grid column-->
+    
+                  </div>
+                  <!--Grid row-->
+    
+                  <hr>
+    
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="same-address">
+                    <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
+                  </div>
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="save-info">
+                    <label class="custom-control-label" for="save-info">Save this information for next time</label>
+                  </div>
+    
+                  <hr>
+    
+                  <div class="d-block my-3">
+                    <div class="custom-control custom-radio">
+                      <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                      <label class="custom-control-label" for="credit">Credit card</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                      <label class="custom-control-label" for="debit">Debit card</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                      <label class="custom-control-label" for="paypal">Paypal</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="cc-name">Name on card</label>
+                      <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                      <small class="text-muted">Full name as displayed on card</small>
+                      <div class="invalid-feedback">
+                        Name on card is required
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="cc-number">Credit card number</label>
+                      <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                      <div class="invalid-feedback">
+                        Credit card number is required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 mb-3">
+                      <label for="cc-expiration">Expiration</label>
+                      <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                      <div class="invalid-feedback">
+                        Expiration date required
+                      </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label for="cc-expiration">CVV</label>
+                      <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                      <div class="invalid-feedback">
+                        Security code required
+                      </div>
+                    </div>
+                  </div>
+                  <hr class="mb-4">
+                  <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+    
+                </form>
+    
+              </div>
+              <!--/.Card-->
+    
+            </div>
+            <!--Grid column-->
+    
+            <!--Grid column-->
+            <div class="col-md-4 mb-4">
+    
+              <!-- Heading -->
+              <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Your cart</span>
+                <span class="badge badge-secondary badge-pill">1</span>
+              </h4>
+    
+              <!-- Cart -->
+              <ul class="list-group mb-3 z-depth-1">
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 class="my-0">{{ item.title }}</h6>
+                    <small class="text-muted">Brief description</small>
+                  </div>
+                  <span class="text-muted">${{ item.price }}</span>
+                </li>
+               
+                <li class="list-group-item d-flex justify-content-between bg-light">
+                  <div class="text-success">
+                    <h6 class="my-0">Promo code</h6>
+                    <small>CODINGDOJO</small>
+                  </div>
+                  <span class="text-success">$0</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Total (USD)</span>
+                  <strong>${{ item.price }}</strong>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Check Currency</span>
+                  <a href="/currency"> <strong>USD/CAD</strong></a>
+                </li>
+              </ul>
+              <!-- Cart -->
+    
+              <!-- Promo code -->
+              <form class="card p-2">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Promo code" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                  <div class="input-group-append">
+                    <button class="btn btn-secondary btn-md waves-effect m-0" type="button">Redeem</button>
+                  </div>
+                </div>
+              </form>
+              <!-- Promo code -->
+    
+            </div>
+            <!--Grid column-->
+    
+          </div>
+          <!--Grid row-->
+    
+        </div>
+      </main>
+      <!--Main layout-->
+
+      <!-- JQuery -->
+      <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+      <!-- Bootstrap tooltips -->
+      <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+      <!-- Bootstrap core JavaScript -->
+      <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+      <!-- MDB core JavaScript -->
+      <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+      <!-- Initializations -->
+      <script type="text/javascript">
+        // Animations initialization
+        new WOW().init();
+      </script>
+        </div>
+      </main>
+      <footer class="container-fluid text-center">
+            <br><br>
+            <hr>
+            <p>Copyright 2019 &#169 Amaba Inc., </p>
+            <p>Emeryville, CA </p>
+
+
+        </footer>
+      <!--Main layout-->
+    
+      <!--Footer-->
+   
+    
+      <!-- SCRIPTS -->
+      <!-- JQuery -->
+      <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+      <!-- Bootstrap tooltips -->
+      <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+      <!-- Bootstrap core JavaScript -->
+      <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+      <!-- MDB core JavaScript -->
+      <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+      <!-- Initializations -->
+      <script type="text/javascript">
+        // Animations initialization
+        new WOW().init();
+    
+      </script>
+
+    </div>
+    <!-- This is the jQuery's slim build section-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        function signInCallback(authResult) {
+            if (authResult['code']) {
+
+                // Hide the sign-in button now that the user is authorized, for example:
+                $('#signinButton').attr('style', 'display: none');
+
+                // Send the code to the server
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://example.com/storeauthcode',
+                    // Always include an `X-Requested-With` header in every AJAX request,
+                    // to protect against CSRF attacks.
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    contentType: 'application/octet-stream; charset=utf-8',
+                    success: function (result) {
+                        console.log(result);
+                        // window.location="/"
+                    },
+                    processData: false,
+                    data: authResult['code']
+                });
+            } else {
+                // There was an error.
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+<ul id="search_results">
+        {% if items.count > 0 %}
+
+        {% for item in items %}
+            <li><a href="/items/get/{{ item.id }}/"> {{ item.title }} </a></li>
+        {% endfor %}
+        {% else %}
+        <li>None to show!</li>
+        {% endif %}
+</ul>

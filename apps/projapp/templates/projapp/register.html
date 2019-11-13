@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://kit.fontawesome.com/1bdabb35a5.js"></script>
+  <title>Amaba - Online shopping for less </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="C:\Users\Lenovo\Desktop\Python_stack\Django\django_full_stack\group_project\apps\projapp\static\projapp\css\style.css">
+  {% load static %}
+
+  <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+    .body {
+      margin: auto;
+    }
+
+    .jumbotron {
+      margin-bottom: 45px;
+      height: 970px;
+
+    }
+
+    .header h1 {
+      margin-top: -50px;
+      font-weight: bold;
+      margin-left: 25px;
+      font-size: 40px;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .header img {
+      display: inline-block;
+      vertical-align: top;
+      width: 55px;
+      height: 55px;
+      margin-top: -50px;
+
+    }
+
+    .mx-auto a {
+      display: inline-block;
+
+    }
+
+    .mx-auto h1 {
+      display: inline-block;
+    }
+
+    .social img {
+      display: inline-block;
+      vertical-align: top;
+      width: 55px;
+      height: 55px;
+      margin-left: 35px;
+    }
+
+    .social {
+      margin-left: 35px;
+      margin-top: 35px;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .mx-auto p {
+      margin-left: 180px;
+    }
+
+    .message{
+      color:red;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- BODY-->
+  <div class="jumbotron">
+    <!--JUMBOTRON-->
+    <div class="header">
+      <a href="/"><img src="{% static 'projapp/images/logoAma.png' %}" alt="logo"></a>
+      <h1>Amaba</h1>
+    </div>
+    <div class="mx-auto" style="width: 380px;">
+      <h1> REGISTER</h1> <a href="/login">
+        <h1>| SIGN IN </h1>
+      </a>
+      <h2> </h2>
+      <form action="/register_process"class="px-6 py-3" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="exampleDropdownFormFirstName">First Name</label>
+          <input type="text" name="first_name" class="form-control" id="exampleDropdownFormFirstName"
+            placeholder="Enter First Name">
+          {% if messages %}
+          <div class="message">
+            {% for message in messages %}
+            {% ifequal message.tags 'first_name error' %}
+            <p>{{ message }}</p>
+            {% endifequal %}
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        <div class="form-group">
+          <label for="exampleDropdownFormLastName">Last Name</label>
+          <input type="text" name="last_name" class="form-control" id="exampleDropdownFormLastName"
+            placeholder="Enter Last Name">
+          {% if messages %}
+          <div class="message">
+            {% for message in messages %}
+            {% ifequal message.tags 'last_name error' %}
+            <p>{{ message }}</p>
+            {% endifequal %}
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        <div class="form-group">
+          <label for="exampleDropdownFormEmail">Email address</label>
+          <input type="email" name="email" class="form-control" id="exampleDropdownFormEmail"
+            placeholder="Enter Email Address">
+          {% if messages %}
+          <div class="message">
+            {% for message in messages %}
+            {% ifequal message.tags 'email error' %}
+            <p>{{ message }}</p>
+            {% endifequal %}
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        <div class="form-group">
+          <label for="exampleDropdownFormPassword">Password</label>
+          <input type="password" name="password" class="form-control" id="exampleDropdownFormPassword"
+            placeholder="Password">
+          {% if messages %}
+          <div class="message">
+            {% for message in messages %}
+            {% ifequal message.tags 'password error' %}
+            <p>{{ message }}</p>
+            {% endifequal %}
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        <div class="form-group">
+          <label for="exampleDropdownFormCPassword">Confirm Password</label>
+          <input type="password" name="confirm_password" class="form-control" id="exampleDropdownFormCPassword"
+            placeholder=" Confirm Password">
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="dropdownCheck">
+          <label class="form-check-label" for="dropdownCheck">
+            Remember me
+          </label><br><br>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+      <div class="dropdown-divider"></div>
+      <hr>
+      <p>or</p>
+      <div class="social">
+        <a href=""><img src="{% static 'projapp/images/facebook.png' %}" alt="facebook"></a>
+        <a href=""><img src="{% static 'projapp/images/twitter.png' %}" alt="google"></a>
+        <a href=""><img src="{% static 'projapp/images/google.png' %}" alt="twitter"></a>
+      </div>
+    </div>
+  </div>
+  <!-- This is the jQuery's slim build section-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
